@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+This FXML file provides a single interface for both user sign-in and registration.
+It uses an AnchorPane as the root, containing two VBox elements: one for login and one for registration.
+The controller will manage which VBox is visible to the user at any given time.
+-->
+<AnchorPane prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #e6e6fa;"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.csc325_firebase_webview_auth.view.AuthFormController">
+
+    <!-- The fx:controller attribute links this FXML file to its Java controller.
+         Ensure 'com.example.csc325_firebase_webview_auth.view.AuthFormController' exists. -->
+
+    <children>
+        <!--
+        VBox for the Login Form: Contains email, password fields, and login button.
+        - fx:id="loginVBox": Unique ID to reference this VBox from the controller.
+        - visible="true": Initially visible when the scene loads.
+        - managed="true": Takes up space in the layout when visible.
+        -->
+        <VBox fx:id="loginVBox" alignment="CENTER" prefHeight="350.0" prefWidth="350.0" spacing="15.0"
+              AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <children>
+                <Label text="Welcome Back!" textFill="#4a4a4a">
+                    <font>
+                        <Font name="Segoe UI Bold" size="28.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="loginEmailField" promptText="Email" style="-fx-background-color: #ecf0f1; -fx-prompt-text-fill: #7f8c8d; -fx-background-radius: 5; -fx-padding: 10;" />
+                <PasswordField fx:id="loginPasswordField" promptText="Password" style="-fx-background-color: #ecf0f1; -fx-prompt-text-fill: #7f8c8d; -fx-background-radius: 5; -fx-padding: 10;" />
+                <Label fx:id="loginMessageLabel" textFill="#e74c3c" />
+                <Button fx:id="signInButton" onAction="#handleSignIn" text="Sign In" prefWidth="180.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 16; -fx-background-radius: 8;" />
+                <Button onAction="#showRegisterForm" text="Don't have an account? Register" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-border-color: transparent;" />
+            </children>
+            <padding>
+                <Insets all ="30.0" />
+            </padding>
+        </VBox>
+
+        <!--
+        VBox for the Registration Form: Contains email, password, confirm password fields, and register button.
+        - fx:id="registerVBox": Unique ID to reference this VBox from the controller.
+        - visible="false": Initially hidden.
+        - managed="false": Does not take up space in the layout when hidden.
+        -->
+        <VBox fx:id="registerVBox" alignment="CENTER" prefHeight="350.0" prefWidth="350.0" spacing="15.0"
+              AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0"
+              style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);"
+              visible="false" managed="false">
+            <children>
+                <Label text="Join Us!" textFill="#4a4a4a">
+                    <font>
+                        <Font name="Segoe UI Bold" size="28.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="registerEmailField" promptText="Email" style="-fx-background-color: #ecf0f1; -fx-prompt-text-fill: #7f8c8d; -fx-background-radius: 5; -fx-padding: 10;" />
+                <PasswordField fx:id="registerPasswordField" promptText="Password" style="-fx-background-color: #ecf0f1; -fx-prompt-text-fill: #7f8c8d; -fx-background-radius: 5; -fx-padding: 10;" />
+                <PasswordField fx:id="registerConfirmPasswordField" promptText="Confirm Password" style="-fx-background-color: #ecf0f1; -fx-prompt-text-fill: #7f8c8d; -fx-background-radius: 5; -fx-padding: 10;" />
+                <Label fx:id="registerMessageLabel" textFill="#e74c3c" />
+                <Button fx:id="registerButton" onAction="#handleRegister" text="Register" prefWidth="180.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-size: 16; -fx-background-radius: 8;" />
+                <Button onAction="#showLoginForm" text="Already have an account? Sign In" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #2ecc71; -fx-border-color: transparent;" />
+            </children>
+            <padding>
+                <Insets all="30.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<!--
+This FXML file presents a minimalist design for the splash screen.
+It uses a StackPane as the root, allowing child nodes to be stacked one on top of the other,
+useful for layering background elements and foreground content.
+-->
+<StackPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #F8F8F8;"
+           xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.csc325_firebase_webview_auth.view.SplashScreenController">
+    <!-- The fx:controller attribute links this FXML file to its Java controller.
+         Ensure 'com.example.csc325_firebase_webview_auth.view.SplashScreenController' exists. -->
+
+    <children>
+        <!--
+        VBox to center the main logo/icon within the StackPane.
+        Alignment is set to CENTER to keep the ImageView visually centered.
+        -->
+        <VBox alignment="CENTER" StackPane.alignment="CENTER">
+            <children>
+                <!--
+                ImageView for the main application icon or logo.
+                - fitWidth/fitHeight: Control the dimensions.
+                - preserveRatio: Maintains the aspect ratio of the image.
+                - url: Points to your icon. Make sure 'app_icon.png' (or .svg, .jpg etc.)
+                       is located in the same directory as this FXML file.
+                -->
+                <ImageView fitWidth="150.0" fitHeight="150.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <!-- Replace with your actual application icon -->
+                        <Image url="@app_icon.png" />
+                    </image>
+                </ImageView>
+                <!-- Optional: A large title label for your application below the icon -->
+                <Label text="My Awesome App" textFill="#2c3e50">
+                    <font>
+                        <Font name="Segoe UI Bold" size="30.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+
+        <!--
+        Label to display a dynamic loading status or a simple "Loading..." message.
+        - fx:id: Provides a unique identifier for controller access.
+        - StackPane.alignment: Positions this label at the bottom center of the StackPane.
+        - textFill: Sets the color of the text.
+        - font: Defines the text style.
+        - StackPane.margin: Adds padding from the bottom edge.
+        -->
+        <Label fx:id="statusLabel" text="Preparing for launch..." textFill="#607d8b" StackPane.alignment="BOTTOM_CENTER">
+            <font>
+                <Font name="Segoe UI Semibold" size="14.0" />
+            </font>
+            <StackPane.margin>
+                <Insets bottom="30.0" />
+            </StackPane.margin>
+        </Label>
+
+        <!--
+        This design intentionally omits a ProgressBar to keep the look very clean and minimal.
+        The `statusLabel` can be updated dynamically by the controller to show progress or
+        just a simple animated "..." to give a sense of activity.
+        If a ProgressBar is desired, it could be placed within the VBox or positioned
+        similarly to the statusLabel at the bottom.
+        -->
+
+    </children>
+</StackPane>
