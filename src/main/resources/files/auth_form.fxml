@@ -14,13 +14,16 @@ This FXML file provides a single interface for both user sign-in and registratio
 It uses an AnchorPane as the root, containing two VBox elements: one for login and one for registration.
 The controller will manage which VBox is visible to the user at any given time.
 -->
+<?import java.net.URL?>
 <AnchorPane prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #e6e6fa;"
             xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.csc325_firebase_webview_auth.view.AuthFormController">
 
     <!-- The fx:controller attribute links this FXML file to its Java controller.
          Ensure 'com.example.csc325_firebase_webview_auth.view.AuthFormController' exists. -->
-
+    <stylesheets>
+        <URL value="styles.css" />
+    </stylesheets>
     <children>
         <!--
         VBox for the Login Form: Contains email, password fields, and login button.

@@ -14,11 +14,17 @@ This FXML file presents a minimalist design for the splash screen.
 It uses a StackPane as the root, allowing child nodes to be stacked one on top of the other,
 useful for layering background elements and foreground content.
 -->
+<?import java.net.URL?>
 <StackPane prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: #F8F8F8;"
            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.example.csc325_firebase_webview_auth.view.SplashScreenController">
     <!-- The fx:controller attribute links this FXML file to its Java controller.
          Ensure 'com.example.csc325_firebase_webview_auth.view.SplashScreenController' exists. -->
+    <stylesheets>
+        <!-- This line links your styles.css file -->
+        <URL value="styles.css">
+        </URL>
+    </stylesheets>
 
     <children>
         <!--
